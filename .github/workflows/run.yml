@@ -1,0 +1,54 @@
+name: Run
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 22 * * *"
+
+jobs:
+  version:
+    name: Version Issue
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Import GPG key
+        uses: crazy-max/ghaction-import-gpg@v5
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+      - name: Git config
+        run: |
+          git config --local user.email "43134606+Ryanjiena@users.noreply.github.com"
+          git config --local user.name "Ryanjiena"
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.6"
+          architecture: "x64"
+      - name: Install GenPAC
+        run: pip install -U genpac
+      - name: gfwlist2pac
+        run: |
+          #!/usr/bin/env bash
+          PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+          export PATH
+          # set -euxo pipefail
+
+          DATE="$(echo $(TZ=UTC date '+%Y-%m-%d %H:%M:%S'))"
+          USER=$(whoami)
+
+          # https://github.com/gfwlist/gfwlist/blob/master/gfwlist.txt
+          # genpac --format=pac --pac-proxy="PROXY 127.0.0.1:10809;" --gfwlist-url="https://cdn.staticaly.com/gh/gfwlist/gfwlist/master/gfwlist.txt" --gfwlist-local="gfw.txt" --gfwlist-update-local --output="gfw.pac"
+          genpac --format=pac --pac-proxy="PROXY 127.0.0.1:10809;" --gfwlist-url="https://github.com/gfwlist/gfwlist/raw/master/gfwlist.txt" --gfwlist-local="gfw.txt" --gfwlist-update-local --output="gfw.pac"
+
+          # https://github.com/Loyalsoldier/v2ray-rules-dat/blob/release/gfw.txt
+          # curl -s "https://cdn.staticaly.com/gh/Loyalsoldier/v2ray-rules-dat/release/gfw.txt" -o 'gfw-new.txt'
+          curl -s "https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/gfw.txt" -o 'gfw-new.txt'
+          genpac --format=pac --pac-proxy="PROXY 127.0.0.1:10809;" --gfwlist-disabled --user-rule-from="gfw-new.txt" --output="gfw-new.pac"
+          sed -i '4{:a;N;5!ba;N;s/.*\n/ * GFWList From: online[https:\/\/github.com\/Loyalsoldier\/v2ray-rules-dat\/raw\/release\/gfw.txt]\n/};' gfw-new.pac
+
+          if [ "$(git status -sb)" == "## main...origin/main" ];then
+            echo -e "\033[42;30m nothing to commit, working tree clean~ \033[0m"
+          else
+            git status -s && git pull origin main && git commit -S -am "Update by: ${USER}, at: ${DATE}" && git push origin main
+          fi
