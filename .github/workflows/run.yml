@@ -44,8 +44,8 @@ jobs:
           genpac --format=pac --pac-proxy="PROXY 127.0.0.1:10809;" --gfwlist-url="https://github.com/gfwlist/gfwlist/raw/master/gfwlist.txt" --gfwlist-local="gfw.txt" --gfwlist-update-local --output="gfw.pac"
 
           # https://github.com/Loyalsoldier/v2ray-rules-dat/blob/release/gfw.txt
-          # curl -s "https://cdn.staticaly.com/gh/Loyalsoldier/v2ray-rules-dat/release/gfw.txt" -o 'gfw-new.txt'
-          curl -s "https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/gfw.txt" -o 'gfw-new.txt'
+          # curl -fssL "https://cdn.staticaly.com/gh/Loyalsoldier/v2ray-rules-dat/release/gfw.txt" -o 'gfw-new.txt'
+          curl -fssL "https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/gfw.txt" -o 'gfw-new.txt'
           genpac --format=pac --pac-proxy="PROXY 127.0.0.1:10809;" --gfwlist-disabled --user-rule-from="gfw-new.txt" --output="gfw-new.pac"
           sed -i '4{:a;N;5!ba;N;s/.*\n/ * GFWList From: online[https:\/\/github.com\/Loyalsoldier\/v2ray-rules-dat\/raw\/release\/gfw.txt]\n/};' gfw-new.pac
 
