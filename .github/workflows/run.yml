@@ -44,15 +44,15 @@ jobs:
           USER=$(whoami)
 
           # https://github.com/gfwlist/gfwlist/blob/master/gfwlist.txt
-          genpac --format=pac --pac-proxy="SOCKS5 127.0.0.1:10809;" --gfwlist-url="https://github.com/gfwlist/gfwlist/raw/master/gfwlist.txt" --gfwlist-local="gfw.txt" --gfwlist-update-local --output="pac/gfw-v2rayn-10809.pac"
-          genpac --format=pac --pac-proxy="SOCKS5 127.0.0.1:7891;" --gfwlist-url="https://github.com/gfwlist/gfwlist/raw/master/gfwlist.txt" --gfwlist-local="gfw.txt" --gfwlist-update-local --output="pac/gfw-clash-7891.pac"
-          genpac --format=pac --pac-proxy="SOCKS5 127.0.0.1:1080;" --gfwlist-url="https://github.com/gfwlist/gfwlist/raw/master/gfwlist.txt" --gfwlist-local="gfw.txt" --gfwlist-update-local --output="pac/gfw.pac"
+          genpac --format=pac --pac-proxy="SOCKS5 127.0.0.1:10809" --gfwlist-url="https://github.com/gfwlist/gfwlist/raw/master/gfwlist.txt" --gfwlist-local="gfw.txt" --gfwlist-update-local --output="pac/gfw-v2rayn-10809.pac"
+          genpac --format=pac --pac-proxy="SOCKS5 127.0.0.1:7891" --gfwlist-url="https://github.com/gfwlist/gfwlist/raw/master/gfwlist.txt" --gfwlist-local="gfw.txt" --gfwlist-update-local --output="pac/gfw-clash-7891.pac"
+          genpac --format=pac --pac-proxy="SOCKS5 127.0.0.1:1080" --gfwlist-url="https://github.com/gfwlist/gfwlist/raw/master/gfwlist.txt" --gfwlist-local="gfw.txt" --gfwlist-update-local --output="pac/gfw.pac"
 
           # https://github.com/Loyalsoldier/v2ray-rules-dat/blob/release/gfw.txt
           curl -fssL "https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/gfw.txt" -o 'gfw-new.txt'
-          genpac --format=pac --pac-proxy="SOCKS5 127.0.0.1:10809;" --gfwlist-disabled --user-rule-from="gfw-new.txt" --output="pac/gfw-new-v2rayn-10809.pac"
-          genpac --format=pac --pac-proxy="SOCKS5 127.0.0.1:7891;" --gfwlist-disabled --user-rule-from="gfw-new.txt" --output="pac/gfw-new-clash-7891.pac"
-          genpac --format=pac --pac-proxy="SOCKS5 127.0.0.1:1080;" --gfwlist-disabled --user-rule-from="gfw-new.txt" --output="pac/gfw-new.pac"
+          genpac --format=pac --pac-proxy="SOCKS5 127.0.0.1:10809" --gfwlist-disabled --user-rule-from="gfw-new.txt" --output="pac/gfw-new-v2rayn-10809.pac"
+          genpac --format=pac --pac-proxy="SOCKS5 127.0.0.1:7891" --gfwlist-disabled --user-rule-from="gfw-new.txt" --output="pac/gfw-new-clash-7891.pac"
+          genpac --format=pac --pac-proxy="SOCKS5 127.0.0.1:1080" --gfwlist-disabled --user-rule-from="gfw-new.txt" --output="pac/gfw-new.pac"
           sed -i '4{:a;N;5!ba;N;s/.*\n/ * GFWList From: online[https:\/\/github.com\/Loyalsoldier\/v2ray-rules-dat\/raw\/release\/gfw.txt]\n/};' pac/gfw-new*.pac
 
           if [ "$(git status -sb)" == "## main...origin/main" ];then
