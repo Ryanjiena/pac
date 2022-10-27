@@ -1,7 +1,8 @@
 /**
  * genpac 2.1.0 https://github.com/JinnLynn/genpac
- * Generated: Thu, 27 Oct 2022 03:20:44 +0000
+ * Generated: Thu, 27 Oct 2022 03:25:45 +0000
  * GFWList From: online[https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/gfw.txt]
+ */
 
 var proxy = 'SOCKS5 127.0.0.1:10808';
 var rules = [
