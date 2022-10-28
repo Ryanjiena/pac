@@ -1,6 +1,6 @@
 /**
  * genpac 2.1.0 https://github.com/JinnLynn/genpac
- * Generated: Thu, 27 Oct 2022 22:42:58 +0000
+ * Generated: Fri, 28 Oct 2022 22:43:38 +0000
  * GFWList From: online[https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/gfw.txt]
  */
 
@@ -154,6 +154,7 @@ var rules = [
             "about.google",
             "aboutgfw.com",
             "abs.edu",
+            "acast.com",
             "accim.org",
             "accountkit.com",
             "aceros-de-hispania.com",
@@ -656,6 +657,7 @@ var rules = [
             "blueangellive.com",
             "bmfinn.com",
             "bnews.co",
+            "bnext.com.tw",
             "bnn.co",
             "bnrmetal.com",
             "boardreader.com",
@@ -1699,6 +1701,7 @@ var rules = [
             "firetweet.io",
             "firstfivefollowers.com",
             "firstpost.com",
+            "firstrade.com",
             "fizzik.com",
             "flagsonline.it",
             "flecheinthepeche.fr",
