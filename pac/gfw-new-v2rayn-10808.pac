@@ -1,6 +1,6 @@
 /**
  * genpac 2.1.0 https://github.com/JinnLynn/genpac
- * Generated: Wed, 02 Nov 2022 22:41:16 +0000
+ * Generated: Thu, 03 Nov 2022 22:39:42 +0000
  * GFWList From: online[https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/gfw.txt]
  */
 
