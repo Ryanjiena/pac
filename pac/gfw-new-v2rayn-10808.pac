@@ -1,6 +1,6 @@
 /**
  * genpac 2.1.0 https://github.com/JinnLynn/genpac
- * Generated: Fri, 04 Nov 2022 22:41:21 +0000
+ * Generated: Sat, 05 Nov 2022 22:40:15 +0000
  * GFWList From: online[https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/gfw.txt]
  */
 
@@ -2518,6 +2518,7 @@ var rules = [
             "hornygamer.com",
             "hornytrip.com",
             "horrorporn.com",
+            "hostloc.com",
             "hotair.com",
             "hotav.tv",
             "hotels.cn",
@@ -4244,6 +4245,7 @@ var rules = [
             "rixcloud.com",
             "rixcloud.us",
             "rlwlw.com",
+            "rmbl.ws",
             "rmjdw.com",
             "rmjdw132.info",
             "roadshow.hk",
@@ -4276,6 +4278,7 @@ var rules = [
             "ruanyifeng.com",
             "rukor.org",
             "rule34.xxx",
+            "rumble.com",
             "runbtx.com",
             "rushbee.com",
             "rusvpn.com",
