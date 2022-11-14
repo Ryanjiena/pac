@@ -1,6 +1,6 @@
 /**
  * genpac 2.1.0 https://github.com/JinnLynn/genpac
- * Generated: Sun, 13 Nov 2022 22:41:33 +0000
+ * Generated: Mon, 14 Nov 2022 22:44:25 +0000
  * GFWList From: online[https://github.com/Loyalsoldier/v2ray-rules-dat/raw/release/gfw.txt]
  */
 
@@ -721,6 +721,7 @@ var rules = [
             "btc98.com",
             "btcbank.bank",
             "btctrade.im",
+            "btdig.com",
             "btdigg.org",
             "btku.me",
             "btku.org",
@@ -728,7 +729,6 @@ var rules = [
             "btsynckeys.com",
             "budaedu.org",
             "buddhanet.com.tw",
-            "buddhistchannel.tv",
             "buffered.com",
             "bullguard.com",
             "bullog.org",
@@ -3775,6 +3775,7 @@ var rules = [
             "openleaks.org",
             "opensea.io",
             "opensource.google",
+            "openstreetmap.org",
             "opentech.fund",
             "openvpn.net",
             "openvpn.org",
